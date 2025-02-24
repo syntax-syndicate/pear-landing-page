@@ -149,6 +149,15 @@ const PricingTier: React.FC<ExtendedPricingTierProps> = ({
           </span>
         </div>
       );
+    } else if (feature?.startsWith("Full access to PearAI Router")) {
+      return (
+        <div className="flex items-center">
+          <span>
+            Full access to PearAI Router & Hosted Servers
+            <ServerAccessTooltip />
+          </span>
+        </div>
+      );
     }
     return feature;
   };
@@ -560,12 +569,14 @@ export const PearCreditsTooltip = ({ type }: { type: string }) => {
         </TooltipTrigger>
         <TooltipContent sideOffset={5}>
           <p className="max-w-[250px]">
-            Current built-in models for this plan include
+            Current built-in models for this plan include (but not limited to)
             <ul className="list-disc pl-4">
-              <li>Claude 3.5 Sonnet (new)</li>
+              <li>PearAI Model</li>
+              <li>Claude 3.5 Sonnet</li>
               <li>GPT4o</li>
-              <li>GPT o1-preview</li>
-              <li>GPT o1-mini</li>
+              <li>Deepseek R1</li>
+              <li>o1</li>
+              <li>o3-mini</li>
               <li>Gemini 1.5 Pro</li>
               <li>Claude 3.5 Haiku (unlimited)</li>
             </ul>
@@ -602,6 +613,29 @@ export const PayAsYouGoTooltip = () => {
               pay-as-you-go extra credit plan
             </Link>
             , or use PearAI Mini free model for unlimited requests.
+          </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+};
+
+export const ServerAccessTooltip = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <TooltipProvider>
+      <Tooltip open={isOpen} onOpenChange={setIsOpen} delayDuration={50}>
+        <TooltipTrigger asChild>
+          <Info
+            className="mb-0.5 ml-1 inline-flex h-4 w-4 flex-shrink-0 cursor-pointer"
+            onClick={() => setIsOpen((prev) => !prev)}
+          />
+        </TooltipTrigger>
+        <TooltipContent sideOffset={5}>
+          <p className="max-w-[250px]">
+            No need to configure and manage different API&apos;s and tools,
+            PearAI will work out of the box.
           </p>
         </TooltipContent>
       </Tooltip>

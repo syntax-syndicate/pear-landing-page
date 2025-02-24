@@ -87,7 +87,7 @@ export const PRICING_TIERS: {
       description:
         "Get the monthly subscription, and we'll take care of you. 😎",
       features: [
-        "Full access to PearAI servers",
+        "Full access to PearAI Router & Hosted Servers",
         "custom-standard",
         "Full privacy: zero data retention policy with Anthropic",
         "Direct customer support by the founders and contributors",
